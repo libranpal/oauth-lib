@@ -24,6 +24,7 @@ dependencies {
     compile (group: 'org.glassfish.jersey.media', name: 'jersey-media-json-processing', version: jerseyVersion)
     compile (group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: jerseyVersion)
     compile (group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: jerseyVersion)
+    compile (group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonVersion)
     
     // logging
     compile (group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion)
