@@ -1,5 +1,5 @@
-# oauth-lib
-Jersey based simple OAuth 2.0 library
+#Portier OAuth2 client library.
+
 
 Build Instructions
 ====================
@@ -12,4 +12,4 @@ Sub-projects
 
 examples/oauthlib-ex
 --------------------
-Provides an example of a web project using the oauth-lib.
+Provides an example of a web project using the portier.

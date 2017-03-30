@@ -1,0 +1,58 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'checkstyle'
+
+group = 'portier'
+archivesBaseName = 'portier'
+description = 'Portier OAuth 2.0 client library'
+
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+
+    // jersey
+    compile (group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: jaxrsVersion)
+    compile (group: 'org.glassfish.jersey.core', name: 'jersey-client', version: jerseyVersion)
+    compile (group: 'org.glassfish.jersey.connectors', name: 'jersey-apache-connector', version: jerseyVersion)
+    compile (group: 'org.glassfish.jersey.media', name: 'jersey-media-json-processing', version: jerseyVersion)
+    compile (group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: jerseyVersion)
+    compile (group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: jerseyVersion)
+    
+    // logging
+    compile (group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion)
+    
+    // javaee
+    compile (group: 'javax', name: 'javaee-api', version: javaeeVersion)
+    compile (group: 'javax', name: 'javaee-web-api', version: javaeeVersion)
+    compile (group: 'javax', name: 'javaee-endorsed-api', version: javaeeVersion)
+    
+    //oauth2 jersey client
+    compile (group: 'org.glassfish.jersey.security', name: 'oauth2-client', version: jerseyVersion)
+
+    // unit test
+    testCompile (group: 'junit', name: 'junit', version: junitVersion)
+    
+    testCompile (group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion)
+    testCompile (group: 'ch.qos.logback', name: 'logback-core', version: logbackVersion)
+}
+
+jar {
+    manifest {
+        attributes("Implementation-Title": "Portier OAuth 2.0 Library", "Implementation-Version": project.version, "Implementation-Vendor": "Kunal Sinha")
+    }
+}
+
+eclipse.classpath.file {
+    whenMerged { classpath ->
+        classpath.entries.findAll { entry -> entry.kind == 'lib' }*.exported = false
+    }
+}
+
+// EOF
