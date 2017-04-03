@@ -25,6 +25,10 @@ dependencies {
     compile (group: 'org.glassfish.jersey.media', name: 'jersey-media-json-jackson', version: jerseyVersion)
     compile (group: 'org.glassfish.jersey.media', name: 'jersey-media-multipart', version: jerseyVersion)
     compile (group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: jacksonVersion)
+    compile (group: 'org.glassfish.jersey.containers', name:'jersey-container-servlet', version: jerseyVersion)
+    compile (group: 'org.glassfish.jersey.media',name:'jersey-media-moxy', version: jerseyVersion)
+    compile (group: 'org.glassfish.jersey.core', name:'jersey-server', version:jerseyVersion)
+    
     
     // logging
     compile (group: 'org.slf4j', name: 'slf4j-api', version: slf4jVersion)
@@ -42,6 +46,12 @@ dependencies {
     
     testCompile (group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion)
     testCompile (group: 'ch.qos.logback', name: 'logback-core', version: logbackVersion)
+    
+    compile (group: 'org.eclipse.jetty', name: 'jetty-server', version: jettyVersion)
+    compile (group: 'org.eclipse.jetty', name: 'jetty-servlet', version: jettyVersion)
+    compile (group: 'org.eclipse.jetty', name: 'jetty-webapp', version: jettyVersion)
+
+    compile (group: 'com.github.jsimone', name: 'webapp-runner', version: jsimoneVersion)
 }
 
 jar {

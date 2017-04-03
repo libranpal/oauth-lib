@@ -148,35 +148,9 @@ package com.portier.oauth.providers.google;
 public final class GoogleConstants
 {
   /**
-   * The Google drive upload URI.
-   */
-  public static final String GOOGLEDRIVE_UPLOAD_URI =
-      "https://www.googleapis.com/upload/drive/v2/files";
-
-  /**
-   * The Google drive root list.
-   */
-  public static final String GOOGLEDRIVE_ROOT_LIST =
-      "https://www.googleapis.com/drive/v2/files";
-
-  /**
-   * The Google drive children.
-   */
-  public static final String GOOGLEDRIVE_CHILDREN =
-      "https://www.googleapis.com/drive/v2/files";
-
-  /**
-   * The Google calendar root list.
-   */
-  public static final String GOOGLECALENDAR_ROOT_LIST =
-      "https://www.googleapis.com/calendar/v3/calendars/primary/events";
-
-  /**
    * The Google scopes.
    */
-  public static final String GOOGLE_SCOPE =
-      "https://www.googleapis.com/auth/drive https://www.googleapis.com/auth/calendar"
-          + " https://www.googleapis.com/auth/plus.login email";
+  public static final String GOOGLE_SCOPE ="https://www.googleapis.com/auth/plus.login";
 
   /**
    * The client id.
@@ -188,10 +162,4 @@ public final class GoogleConstants
    */
   public static final String CLIENT_SECRET_GOOGLE =
       "CLIENT_SECRET_GOOGLE";
-
-  /**
-   * google me url.
-   */
-  public static final String GOOGLE_ME_URL =
-      "https://www.googleapis.com/plus/v1/people/me";
 }
