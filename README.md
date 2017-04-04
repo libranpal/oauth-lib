@@ -6,10 +6,4 @@ Build Instructions
 
 Use gradle clean build to build this project
 
-
-Sub-projects
-============
-
-examples/oauthlib-ex
---------------------
-Provides an example of a web project using the portier.
+Use gradle clean run will start a jetty process and deploy the project in it. It will also open the browser with oauth enabled google endpoint

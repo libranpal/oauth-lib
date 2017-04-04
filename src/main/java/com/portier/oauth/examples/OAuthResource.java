@@ -16,45 +16,44 @@ import com.portier.oauth.api.AuthenticationCompletionHandler;
 import com.portier.oauth.api.AuthenticationContext;
 import com.portier.oauth.providers.google.Google;
 
+/**
+ * An example of an oauth2 for google endpoint.
+ * @author P.
+ *
+ */
 @Path("oauthgoogle")
 public class OAuthResource {
 
-	@GET
-	@Produces(MediaType.APPLICATION_JSON)
-	public Response getTokens(){
-		try {
-			final OAuthService oauthsvc =
-        	        new OAuthServiceBuilder().provider(Google.class).
-        	        build();
-			
-		    final AuthenticationContext ctx = new AuthContextImpl( 
-		    		new AuthenticationCompletionHandler() {
-				
-				@Override
-				public Response handleError(Exception e) {
-					e.printStackTrace();
-					return null;
-				}
-				
-				@Override
-				public Response handleCompletion(AuthenticationContext ctx) {
-					 TokenResult result = ctx.getTokenResult();
-				      
-				      final AccessTokenData test = new AccessTokenData();
-				      test.setAccessToken(result.getAccessToken());
-				      test.setRefreshToken(result.getRefreshToken());
-				      
-				      return Response.ok(test,MediaType.APPLICATION_JSON).build();
-				}
-			});
-		    	
-		    return oauthsvc.startAuthentication(ctx);
-		    
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return Response.noContent().build();
-	}
-
+  /**
+   * Gets the token and prints in a browser.
+   * @return response.
+   */
+  @GET
+  @Produces(MediaType.APPLICATION_JSON)
+    public Response getTokens(){
+      try {
+        final OAuthService oauthsvc =  new OAuthServiceBuilder().provider(Google.class).build();
+         final AuthenticationContext ctx = new AuthContextImpl(
+             new AuthenticationCompletionHandler() {
+              @Override
+               public Response handleError(Exception e) {
+                   e.printStackTrace();
+                   return null;
+               }
+              
+              @Override
+               public Response handleCompletion(AuthenticationContext ctx) {
+                   TokenResult result = ctx.getTokenResult();
+                   final AccessTokenData test = new AccessTokenData();
+                     test.setAccessToken(result.getAccessToken());
+                     test.setRefreshToken(result.getRefreshToken());
+                     return Response.ok(test,MediaType.APPLICATION_JSON).build();
+               }
+          });
+           return oauthsvc.startAuthentication(ctx);
+        } catch (Exception e) {
+          e.printStackTrace();
+        }
+        return Response.noContent().build();
+   }
 }
